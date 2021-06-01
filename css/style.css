@@ -1,0 +1,40 @@
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -50px;
+  margin-left: -50px;
+  max-width: 1200px;
+}
+
+.gallery__item {
+  flex-basis: calc(100% / 3 - 50px);
+  padding: 0;
+  margin: 0;
+  height: 300px;
+  list-style: none;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.gallery__img {
+  height: 100%;
+  object-fit: cover;
+}
+
+#validation-input {
+  border: 3px solid #bdbdbd;
+}
+
+#validation-input.valid {
+  border-color: #4caf50;
+}
+
+#validation-input.invalid {
+  border-color: #f44336;
+}
