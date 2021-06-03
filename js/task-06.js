@@ -7,37 +7,17 @@
 Для добавления стилей, используй CSS-классы valid и invalid.
 */
 
-/*const inputEl = document.querySelector('#validation-input');
-const dataLength = Number(inputEl.dataset.length);
+const targetInput = document.querySelector('input#validation-input');
 
-inputEl.addEventListener('blur', onInputChangefocus);
-
-function onInputChangefocus(event)
-{ 
-    if (dataLength !== event.currentTarget.value.length) {
-        inputEl.classList.add('invalid');
-        inputEl.classList.add('valid');
-    }
-    else {
-    inputEl.classList.add('valid')
-    inputEl.classList.remove('invalid')
-  }
-    
-}*/
-
-
-const inputEl = document.querySelector('input#validation-input');
-
-function onInput() {
-    if (inputEl.value.length < inputEl.getAttribute('data-length')) {
-        inputEl.classList.add('invalid');
-        inputEl.classList.remove('valid');
-    } else {
-        inputEl.classList.add('valid');
-        inputEl.classList.remove('invalid');
-    }
+targetInput.addEventListener('blur', onCheck);
+function onInput(isValid) {
+    return isValid ? { toAdd: 'valid', toRemove: 'invalid' }:{ toAdd: 'invalid', toRemove: 'valid' }
 }
 
-console.log(onInput);
+function onCheck() {
+    const actions = onInput(targetInput.value.length >= targetInput.getAttribute('data-length'));
 
+    targetInput.classList.add(actions.toAdd);
+    targetInput.classList.remove(actions.toRemove);
+}
 
